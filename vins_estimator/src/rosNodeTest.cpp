@@ -227,18 +227,18 @@ int main(int argc, char **argv)
     ros::NodeHandle n("~");
     ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME, ros::console::levels::Info);
 
-    // if(argc != 2)
-    // {
-    //     printf("please intput: rosrun vins vins_node [config file] \n"
-    //            "for example: rosrun vins vins_node "
-    //            "~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_stereo_imu_config.yaml \n");
-    //     return 1;
-    // }
+    if(argc != 2)
+    {
+        printf("please intput: rosrun vins vins_node [config file] \n"
+               "for example: rosrun vins vins_node "
+               "~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_stereo_imu_config.yaml \n");
+        return 1;
+    }
 
-    // string config_file = argv[1];
-    // printf("config_file: %s\n", argv[1]);
+    string config_file = argv[1];
+    printf("config_file: %s\n", argv[1]);
 
-    string config_file = "/home/iot/ws_sensors/src/VINS-Fusion/config/realsense_d455/realsense_stereo_imu_config.yaml";
+    // string config_file = "/home/iot/ws_sensors/src/VINS-Fusion/config/realsense_d455/realsense_stereo_imu_config.yaml";
 
     readParameters(config_file);
     estimator.setParameter();
